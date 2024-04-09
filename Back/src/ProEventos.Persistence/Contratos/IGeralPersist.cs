@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ProEventos.Domain;
 
-namespace ProEventos.Persistence
+namespace ProEventos.Persistence.Contratos
 {
     public interface IGeralPersist
     {
