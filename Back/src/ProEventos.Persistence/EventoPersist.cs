@@ -12,6 +12,11 @@ namespace ProEventos.Persistence
     {
         private readonly ProEventosContext _context;
 
+        public EventoPersist(ProEventosContext context)
+        {
+            _context = context;
+        }
+
         public async Task<Evento[]> GetAllEventosAsync(bool includePalestrante = false)
         {
             IQueryable<Evento> query = _context.Eventos
