@@ -106,6 +106,22 @@ namespace ProEventos.API.Controllers
                     $"Erro ao tentar atualizar eventos. Erro: {ex.Message}");
             }
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                return await _eventoService.DeleteEvento(id) ? 
+                       Ok("Deletado") : 
+                       BadRequest("Evento não deletado");
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar deletar eventos. Erro: {ex.Message}");
+            }
+        }
     }
 }
 
