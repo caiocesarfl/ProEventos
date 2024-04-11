@@ -17,8 +17,7 @@
       <th>#</th>
       <th>
         <button type="button" class="btn btn-light btn-sm"
-          (click)=alterarImagem();
-          >
+          (click)=alterarImagem();>
           <span *ngIf="!mostrarImagem">Mostrar</span>
           <span *ngIf="mostrarImagem">Ocultar</span>
         </button>
@@ -45,10 +44,14 @@
       <td>{{evento.local}}</td>
       <td>{{evento.dataEvento}}</td>
       <td>{{evento.qtdPessoas}}</td>
-      <td>{{evento.lotes}}</td>
+      <td>{{evento.lotes[0].nome}}</td>
       <td>
-        <button type="button" class="btn btn-primary btn-sm mr-2">Editar</button>
-        <button type="button" class="btn btn-danger btn-sm">Deletar</button>
+        <button type="button" class="btn btn-primary btn-sm mr-2">
+          <i class="fa fa-edit"> </i>
+        </button>
+        <button type="button" class="btn btn-danger btn-sm">
+          <i class="fa fa-trash"> </i>
+        </button>
       </td>
   </tbody>
   <tfoot *ngIf="!eventos || !eventos.length">
