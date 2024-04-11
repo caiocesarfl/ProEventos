@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +22,7 @@ import { BsDropdownModule } from  'ngx-bootstrap/dropdown';
 import { EventoService } from './service/evento.service';
 
 import { DateTimeFormat } from './helpers/DateTimeFormat.pipe';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -40,6 +43,12 @@ import { DateTimeFormat } from './helpers/DateTimeFormat.pipe';
     TooltipModule.forRoot(),
     CollapseModule.forRoot(),
     ModalModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      progressBar: true
+    }),
   ],
   providers: [EventoService],
   bootstrap: [AppComponent]
