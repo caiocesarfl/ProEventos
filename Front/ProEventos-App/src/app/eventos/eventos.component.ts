@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { EventoService } from '../service/evento.service';
 import { Evento } from '../models/Evento';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-eventos',
@@ -32,7 +33,13 @@ export class EventosComponent implements OnInit {
     evento.local.toLocaleLowerCase().indexOf(filtrarPor) !== -1);
   };
 
-  constructor(private eventoService: EventoService) { }
+  public modalRef?: BsModalRef;
+  public message?: string;
+
+  constructor(
+    private eventoService: EventoService,
+    private modalService: BsModalService
+  ) { }
 
 
   public ngOnInit(): void {
@@ -57,4 +64,17 @@ export class EventosComponent implements OnInit {
     this.eventoService.getEventos().subscribe(observer);
   }
 
+  openModal(template: TemplateRef<void>) : void {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+
+  confirm(): void {
+    this.message = 'Confirmed!';
+    this.modalRef?.hide();
+  }
+
+  decline(): void {
+    this.message = 'Declined!';
+    this.modalRef?.hide();
+  }
 }
