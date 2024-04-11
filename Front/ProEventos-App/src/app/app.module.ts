@@ -9,13 +9,16 @@ import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { EventoService } from './service/evento.service';
 
+import { DateTimeFormat } from './helpers/DateTimeFormat.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     EventosComponent,
       PalestrantesComponent,
-      NavComponent
+      NavComponent,
+      DateTimeFormat,
    ],
   imports: [
     BrowserModule,
