@@ -1,8 +1,9 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { EventoService } from '../service/evento.service';
-import { Evento } from '../models/Evento';
+import { EventoService } from '../../service/evento.service';
+import { Evento } from '../../models/Evento';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-eventos',
@@ -13,7 +14,6 @@ export class EventosComponent implements OnInit {
 
   public eventos: Evento[] = [];
   public eventosFiltrados: Evento[] = [];
-
   public widthImg : number = 150;
   public marginImg: number = 2;
   public mostrarImagem: boolean = true;
@@ -41,11 +41,13 @@ export class EventosComponent implements OnInit {
     private eventoService: EventoService,
     private modalService: BsModalService,
     private toaster: ToastrService,
+    private spinner: NgxSpinnerService
   ) { }
 
 
   public ngOnInit(): void {
     this.getEventos();
+    this.spinner.show();
   }
 
   public alterarImagem() {
@@ -60,8 +62,10 @@ export class EventosComponent implements OnInit {
 
       },
       error: (error: any) => console.log(error),
-      complete: () => {}
-      };
+      complete: () => {
+        this.spinner.hide();
+      }
+    };
 
     this.eventoService.getEventos().subscribe(observer);
   }

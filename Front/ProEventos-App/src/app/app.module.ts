@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
-import { EventosComponent } from './eventos/eventos.component';
-import { PalestrantesComponent } from './palestrantes/palestrantes.component';
+import { EventosComponent } from './componentes/eventos/eventos.component';
+import { PalestrantesComponent } from './componentes/palestrantes/palestrantes.component';
 import { NavComponent } from './nav/nav.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,15 +23,17 @@ import { EventoService } from './service/evento.service';
 
 import { DateTimeFormat } from './helpers/DateTimeFormat.pipe';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EventosComponent,
-      PalestrantesComponent,
-      NavComponent,
-      DateTimeFormat,
+    PalestrantesComponent,
+    NavComponent,
+    DateTimeFormat,
    ],
   imports: [
     BrowserModule,
@@ -49,8 +51,12 @@ import { ToastrModule } from 'ngx-toastr';
       preventDuplicates: true,
       progressBar: true
     }),
+    NgxSpinnerModule
+
   ],
   providers: [EventoService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
 })
 export class AppModule { }
