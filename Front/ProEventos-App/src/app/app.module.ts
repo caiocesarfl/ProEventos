@@ -12,6 +12,7 @@ import { PalestrantesComponent } from './componentes/palestrantes/palestrantes.c
 import { NavComponent } from './nav/nav.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TituloComponent } from './shared/titulo/titulo.component';
 
 import { FormsModule } from '@angular/forms';
 
@@ -24,6 +25,9 @@ import { EventoService } from './service/evento.service';
 import { DateTimeFormat } from './helpers/DateTimeFormat.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { DashboardComponent } from './componentes/dashboard/dashboard.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { ContatosComponent } from './componentes/contatos/contatos.component';
 
 
 
@@ -34,6 +38,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
     PalestrantesComponent,
     NavComponent,
     DateTimeFormat,
+    TituloComponent,
+    DashboardComponent,
+    PerfilComponent,
+    ContatosComponent
    ],
   imports: [
     BrowserModule,
