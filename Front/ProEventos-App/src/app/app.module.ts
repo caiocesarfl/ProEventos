@@ -14,7 +14,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TituloComponent } from './shared/titulo/titulo.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDropdownModule } from  'ngx-bootstrap/dropdown';
@@ -51,7 +51,7 @@ import { RegistrationComponent } from './componentes/user/registration/registrat
     EventoDetalheComponent,
     UserComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
    ],
   imports: [
     BrowserModule,
@@ -69,8 +69,8 @@ import { RegistrationComponent } from './componentes/user/registration/registrat
       preventDuplicates: true,
       progressBar: true
     }),
-    NgxSpinnerModule
-
+    NgxSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [EventoService],
   bootstrap: [AppComponent],
