@@ -1,7 +1,7 @@
 <app-titulo [titulo]="'Perfil'"> </app-titulo>
 <div class="card rounded shadow-sm p-3">
 
-<form>
+<form [formGroup]="form">
 	<div class="row p-3">
 		<div class="col-lg-3 pt-1">
 			<div class="card mb-3">
@@ -59,23 +59,37 @@
 				</div>
 				<div class="form-group col-sm-5">
 					<label>Primeiro Nome</label>
-					<input type="text" class="form-control"/>
+					<input type="text"
+          formControlName="primeiroNome"
+          [ngClass]="{'is-invalid': f.primeiroNome.errors && f.primeiroNome.touched}"
+          class="form-control"/>
 
 				</div>
 				<div class="form-group col-sm-5">
 					<label>Último nome</label>
-					<input type="text" class="form-control"/>
+					<input type="text"
+          formControlName="ultimoNome"
+          [ngClass]="{'is-invalid': f.ultimoNome.errors && f.ultimoNome.touched}"
+          class="form-control"
+          />
 
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-sm-5">
 					<label>E-mail</label>
-					<input type="text" class="form-control" />
+					<input type="text"
+           formControlName="email"
+           [ngClass]="{'is-invalid': f.email.errors && f.email.touched}"
+           class="form-control" />
 				</div>
 				<div class="form-group col-sm-4">
 					<label>Telefone</label>
-					<input type="text" class="form-control" />
+					<input type="text" class="form-control"
+            formControlName="telefone"
+            [ngClass]="{'is-invalid': f.telefone.errors && f.telefone.touched}"
+            class="form-control"
+          />
 				</div>
 				<div class="form-group col-sm">
 					<label>Função</label>
@@ -87,7 +101,11 @@
 				</div>
 				<form-group class="col-12">
 					<label>Descrição</label>
-					<input type="text" class="form-control" />
+					<input type="text"
+          class="form-control"
+          formControlName="descricao"
+          [ngClass]="{'is-invalid': f.descricao.errors && f.descricao.touched}"
+          />
 				</form-group>
 			</div>
 			<div>
@@ -97,11 +115,19 @@
 			<div class="form-row">
 				<div class="form-group col-sm">
 					<label>Senha</label>
-					<input type="password" class="form-control" />
+					<input type="password"
+           class="form-control"
+           formControlName="senha"
+           [ngClass]="{'is-invalid' : f.senha.errors && f.senha.touched}"
+           />
 				</div>
 				<div class="form-group col-sm">
 					<label>Confirmar Senha</label>
-					<input type="password" class="form-control" />
+					<input type="password"
+          class="form-control"
+          formControlName="confirmarSenha"
+          [ngClass]="{'is-invalid' : f.confirmarSenha.erros && f.confirmarSenha.touched}"
+          />
 				</div>
 			</div>
 		</div>
