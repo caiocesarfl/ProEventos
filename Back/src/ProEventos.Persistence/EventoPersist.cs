@@ -66,7 +66,7 @@ namespace ProEventos.Persistence
             query = query.OrderBy(e => e.Id)
             .Where(e =>e.Id == eventoId);
 
-            return await query.FirstOrDefaultAsync(); ;
+            return await query.FirstOrDefaultAsync();
             }
         }
     }

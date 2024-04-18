@@ -29,7 +29,7 @@ namespace ProEventos.API.Controllers
             try
             {
                 var eventos = await _eventoService.GetAllEventosAsync(true);
-                if (eventos == null) return NotFound("Nenhum evento encontrado.");
+                if (eventos == null) return NoContent();
 
                 return Ok(eventos);
             }
@@ -46,7 +46,8 @@ namespace ProEventos.API.Controllers
             try
             {
                 var evento = await _eventoService.GetEventoByIdAsync(id, true);
-                if (evento == null) return NotFound("Evento por Id não encontrado.");
+                if (evento == null) return NoContent();
+
 
                 return Ok(evento);
             }
@@ -63,7 +64,7 @@ namespace ProEventos.API.Controllers
             try
             {
                 var evento = await _eventoService.GetAllEventosByTemaAsync(tema, true);
-                if (evento == null) return NotFound("Eventos por tema não encontrados.");
+                if (evento == null) return NoContent();
 
                 return Ok(evento);
             }
@@ -80,7 +81,7 @@ namespace ProEventos.API.Controllers
             try
             {
                 var evento = await _eventoService.AddEventos(model);
-                if (evento == null) return BadRequest("Erro ao tentar adicionar evento.");
+                if (evento == null) return NoContent();
 
                 return Ok(evento);
             }
@@ -97,7 +98,7 @@ namespace ProEventos.API.Controllers
             try
             {
                 var evento = await _eventoService.UpdateEvento(id, model);
-                if (evento == null) return BadRequest("Erro ao tentar adicionar evento.");
+                if (evento == null)  return NoContent();
 
                 return Ok(evento);
             }
@@ -115,7 +116,7 @@ namespace ProEventos.API.Controllers
             {
                 return await _eventoService.DeleteEvento(id) ? 
                        Ok("Deletado") : 
-                       BadRequest("Evento não deletado");
+                       throw new Exception("Ocorreu um problem não específico ao tentar deletar Evento.");
             }
             catch (Exception ex)
             {
