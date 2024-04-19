@@ -6,9 +6,8 @@ import { DatePipe } from '@angular/common';
   name: 'DateTimeFormat'
 })
 export class DateTimeFormat extends DatePipe implements PipeTransform {
-
   transform(value: any, args?: any): any {
     return super.transform(value, Constants.DATE_TIME_FMT);
   }
-
 }
+

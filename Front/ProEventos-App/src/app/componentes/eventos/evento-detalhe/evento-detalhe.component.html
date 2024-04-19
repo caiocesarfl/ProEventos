@@ -30,7 +30,10 @@
         </div>
         <div class="form-group col-md-4">
           <label>Data e Hora</label>
-          <input type="datetime" class="form-control" [ngClass]="{'is-invalid': f.dataEvento.errors && f.dataEvento.touched}"
+          <input type="datetime" class="form-control"
+          [ngClass]="{'is-invalid': f.imagemURL.errors && f.imagemURL.touched}"
+          value="{{evento.dataEvento | DateTimeFormat}}"
+          bsDatepicker
             formControlName="dataEvento" placeholder="">
           <div *ngIf="f.dataEvento.errors?.required && f.dataEvento.touched" class="invalid-feedback">
             Data e Hora é obrigatório.

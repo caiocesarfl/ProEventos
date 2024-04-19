@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDropdownModule } from  'ngx-bootstrap/dropdown';
-
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
 import { EventoService } from './service/evento.service';
 
