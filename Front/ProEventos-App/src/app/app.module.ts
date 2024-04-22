@@ -60,6 +60,7 @@ import { RegistrationComponent } from './componentes/user/registration/registrat
     HttpClientModule,
     FormsModule,
     BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     TooltipModule.forRoot(),
     CollapseModule.forRoot(),
     ModalModule.forRoot(),

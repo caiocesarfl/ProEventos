@@ -112,6 +112,10 @@ namespace ProEventos.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+
+            var evento = await _eventoService.GetEventoByIdAsync(id, true);
+            if (evento == null) return NoContent();
+            
             try
             {
                 return await _eventoService.DeleteEvento(id) ? 
