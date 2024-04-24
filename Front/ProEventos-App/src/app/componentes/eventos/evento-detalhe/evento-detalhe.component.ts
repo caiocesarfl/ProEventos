@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { EventoService } from '@app/service/evento.service';
+
 import { Evento } from '@app/models/Evento';
+import { EventoService } from '@app/service/evento.service';
 
 @Component({
   selector: 'app-evento-detalhe',
   templateUrl: './evento-detalhe.component.html',
   styleUrls: ['./evento-detalhe.component.scss']
 })
-
 export class EventoDetalheComponent implements OnInit {
+
   evento = {} as Evento;
   form: FormGroup;
   estadoSalvar = 'post';
@@ -66,7 +68,22 @@ export class EventoDetalheComponent implements OnInit {
 
   ngOnInit(): void {
     this.carregarEvento();
-    //this.validation();
+    this.validation();
+  }
+
+  public validation(): void {
+    this.form = this.fb.group({
+      tema: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+      local: ['', Validators.required],
+      dataEvento: ['', Validators.required],
+      qtdPessoas: ['', [Validators.required, Validators.max(120000)]],
+      telefone: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      imagemURL: ['', Validators.required],
+    });
+  }
+
+  public resetForm(): void {
     this.form.reset();
   }
 
@@ -93,4 +110,5 @@ export class EventoDetalheComponent implements OnInit {
       );
     }
   }
+
 }
